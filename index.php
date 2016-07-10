@@ -54,7 +54,7 @@
 	    <section>
 		    <div>
 		    	<h3>Hong Kong Stocks Historical Chart Loookup</h3>
-		    	<h4>Use the symbol and company name from Quandl result to search.</h4>
+		    	<h4>Use Quandl Stock Information result for symbol and company name to view the chart</h4>
 		      	<form id="chart_lookup" action="stocks.php" method="post">
 				  <div class="form-group row">
 	  			    <label for="inputEmail3" class="col-sm-2 form-control-label">Stock Symbol</label>
@@ -77,36 +77,6 @@
 			</div>
 		</section>
 		
-		<!--result from yahoo finance-->
-		<section>
-			<h4 class="text-center">Yahoo Finance Stock Information</h4>
-				<table class="table table-bordered table-indicator">
-	    			<thead id="headertable">
-	    				<tr>
-	    					<th>Symbol</th>
-	    					<th>Company Name</th>
-	    				</tr>
-	    			</thead>
-	    			<tbody id=results>
-						<?php 
-							$compname = rawurlencode($_POST['compname']);
-							$jsondata = file_get_contents('http://autoc.finance.yahoo.com/autoc?&region=1&lang=en&query='.$compname.'');
-							$data = json_decode($jsondata, true);
-							$results = $data['ResultSet']['Result'];
-							
-							foreach ($results as $result) {
-							    $symbol = $result['symbol'];
-							    $name 	= $result['name'];
-							    
-							    print '<tr>'; 
-							    print '<td>'.$symbol.'</td>';
-							    print '<td>'.$name.'</td>';
-							    print '</tr>';
-							}
-						?>
-	    			</tbody>
-	    		</table>
-		</section>
 		<!--get code for quandl-->
 		<section>
 			<h4 class="text-center">Quandl Stock Information</h4>
@@ -137,6 +107,37 @@
 				 	?>
     			</tbody>
     		</table>
+		</section>
+
+		<!--result from yahoo finance-->
+		<section>
+			<h4 class="text-center">Yahoo Finance Stock Information</h4>
+				<table class="table table-bordered table-indicator">
+	    			<thead id="headertable">
+	    				<tr>
+	    					<th>Symbol</th>
+	    					<th>Company Name</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody id=results>
+						<?php 
+							$compname = rawurlencode($_POST['compname']);
+							$jsondata = file_get_contents('http://autoc.finance.yahoo.com/autoc?&region=1&lang=en&query='.$compname.'');
+							$data = json_decode($jsondata, true);
+							$results = $data['ResultSet']['Result'];
+							
+							foreach ($results as $result) {
+							    $symbol = $result['symbol'];
+							    $name 	= $result['name'];
+							    
+							    print '<tr>'; 
+							    print '<td>'.$symbol.'</td>';
+							    print '<td>'.$name.'</td>';
+							    print '</tr>';
+							}
+						?>
+	    			</tbody>
+	    		</table>
 		</section>
 
 		<?php endif;?>

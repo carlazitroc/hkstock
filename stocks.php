@@ -18,8 +18,9 @@
     <?php
       if(isset($_POST['submit'])) { $dataset_code = $_POST['stock_num']; }
 
-      //$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
-      $url = 'data/00700.xml';
+      //live data from quandl.com
+      $url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+      //$url = 'data/00700.xml';
       $xml = simplexml_load_file($url);
 
       $val = $xml->dataset->dataset[2];
@@ -33,10 +34,6 @@
 
     <script type="text/javascript">
       	window.onload = function () {        
-
-        // dataPoints
-        //var dataPoints1 = [];
-        //var dataPoints2 = [];
 
         var chart = new CanvasJS.Chart("chartContainer",{
           zoomEnabled: true,
@@ -63,7 +60,7 @@
             includeZero: false
           }, 
           data: [{ 
-            // dataSeries1
+            // dataSeries1 dayHigh
             type: "line",
             showInLegend: true,
             name: "Day High",
@@ -93,7 +90,7 @@
             ]
           },
           {       
-            // dataSeries2
+            // dataSeries2 dayLow
             type: "line",
             showInLegend: true,
             name: "Day Low" ,
@@ -123,7 +120,7 @@
             ]
           },
           {       
-            // dataSeries3
+            // dataSeries3 kd data/opening
             type: "line",
             showInLegend: true,
             name: "Opening" ,
@@ -153,7 +150,7 @@
             ]
           },
           {       
-            // dataSeries4
+            // dataSeries4 rsi/closing
             type: "line",
             showInLegend: true,
             name: "Closing" ,
@@ -197,12 +194,6 @@
               }
         });
         chart.render();
-
-        // function onMouseover(e){
-        //   $( "#dayHigh" ).html( '<p>' + e.dataPoint.y + '</p>').toggle( "highlight" );
-        //   $( "#dayLow" ).html( '<p>' + e.dataPoint.y + '</p>').toggle( "highlight" );
-        //   //alert(  e.dataSeries.type+ ", dataPoint { x:" + e.dataPoint.x + ", y: "+ e.dataPoint.y + " }" );
-        // }
       }
     </script>
   </head>
