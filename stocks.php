@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Hong Kong Stocks Sample Graph">
     <meta name="author" content="Maricarl Ortiz">
-    <title>Hong Kong Stocks Exam</title>
+    <title>Hong Kong Stocks Historical Chart Loookup</title>
     <link href="source/css/bootstrap.min.css" rel="stylesheet">
     <link href="source/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link href="source/css/jumbotron-narrow.css" rel="stylesheet">
@@ -16,18 +16,19 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <?php
-      //$url = 'https://www.quandl.com/api/v3/datasets/XHKG/00700.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+      if(isset($_POST['submit'])) { $dataset_code = $_POST['stock_num']; }
+
+      //$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
       $url = 'data/00700.xml';
       $xml = simplexml_load_file($url);
 
-      // get company name
-      $comp_name = $xml->dataset->name;
+      $val = $xml->dataset->dataset[2];
 
-      // get stock number
-      $start  = strpos($comp_name, '(');
-      $end    = strpos($comp_name, ')', $start + 1);
-      $length = $end - $start;
-      $stock_no = substr($comp_name, $start + 1, $length - 1);
+      echo $val;
+
+      // get company name and stock no
+      $comp_name = $xml->dataset->name;
+      $stock_no  = $xml->dataset->{'dataset-code'};
     ?>
 
     <script type="text/javascript">
@@ -210,33 +211,28 @@
 
     <div class="container">
 	    <div class="header clearfix">
-	        <h3 class="text-center">Hong Kong Stocks</h3>
+	        <h3 class="text-center">Hong Kong Stocks Historical Chart Loookup</h3>
 	    </div>
 
-	    <!--search form-->
-	    <section>
-        <div>
-          <form>
-    			  <div class="form-group row">
-    			    <label for="inputEmail3" class="col-sm-2 form-control-label">Stock No.</label>
-    			    <div class="col-sm-10">
-    			      <input type="text" class="form-control" id="inputStockNo" placeholder="Stock No." value="<?php echo $stock_no; ?>" required>
-    			    </div>
-    			  </div>
-    			  <div class="form-group row">
-    			    <label for="inputPassword3" class="col-sm-2 form-control-label">Company Name</label>
-    			    <div class="col-sm-10">
-    			      <input type="text" class="form-control" id="inputCompanyName" placeholder="Company Name" value="<?php echo $comp_name; ?>" required>
-    			    </div>
-    			  </div>
-    			  <div class="form-group row">
-    			    <div class="col-sm-offset-2 col-sm-10">
-    			      <button type="submit" class="btn btn-primary">Search</button>
-    			    </div>
-    			  </div>
-    			</form>
+      <!--symbol lookup-->
+      <section>
+          <div>
+            <h3>Stock Symbol Lookup</h3>
+            <form action="index.php" method="post">
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 form-control-label">Company Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="compname" id="companyname" placeholder="Company Name" required/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary" id="symlookup">Lookup</button>
+                </div>
+            </div>
+            </form>
         </div>
-		  </section>
+      </section>
 	      
       <!--graph-->
   		<section>
