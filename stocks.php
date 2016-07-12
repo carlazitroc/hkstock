@@ -62,6 +62,8 @@
 
                     var dataPoints1 = [];
                     var dataPoints2 = [];
+                    var dataPoints3 = [];
+                    var dataPoints4 = [];
 
                     var chart = new CanvasJS.Chart("chartContainer",{
                       zoomEnabled: true,
@@ -100,6 +102,20 @@
                         showInLegend: true,
                         name: "Day Low",
                         dataPoints: dataPoints2
+                      },{ 
+                        // dataSeries1 dayHigh
+                        type: "line",
+                        xValueType: "dateTime",
+                        showInLegend: true,
+                        name: "Opening",
+                        dataPoints: dataPoints3
+                      },{ 
+                        // dataSeries1 dayHigh
+                        type: "line",
+                        xValueType: "dateTime",
+                        showInLegend: true,
+                        name: "Closing",
+                        dataPoints: dataPoints4
                       }],
                           legend:{
                             cursor:"pointer",
@@ -139,7 +155,7 @@
                       // pushing the new values
                       dataPoints1.push({
                         x: date_f,
-                        y: open_f,
+                        y: high_f,
                         mouseover: function(e) { 
                           $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
                           $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
@@ -150,13 +166,33 @@
                       //pushing the new values
                       dataPoints2.push({
                         x: date_f,
-                        y: high_f,
+                        y: low_f,
                         mouseover: function(e) { 
                           $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
                           $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
                           $( "#dayHigh" ).html( "<p>" + high_f + "</p>").toggle( "highlight" );
                           $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
                           }  
+                      });
+                      dataPoints3.push({
+                        x: date_f,
+                        y: open_f,
+                        mouseover: function(e) { 
+                          $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
+                          $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
+                          $( "#dayHigh" ).html( "<p>" + high_f + "</p>").toggle( "highlight" );
+                          $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
+                        }  
+                      });
+                      dataPoints4.push({
+                        x: date_f,
+                        y: close_f,
+                        mouseover: function(e) { 
+                          $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
+                          $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
+                          $( "#dayHigh" ).html( "<p>" + high_f + "</p>").toggle( "highlight" );
+                          $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
+                        }  
                       });
 
                     });
@@ -173,18 +209,21 @@
                  stock_num_index: stock_num_from_index},
                 function(response) 
                 {
-                   // Check the output of json
+                    // Check the output of json
                     try{
                        var obj = $.parseJSON(response);
                     }catch(err){
                        $('#errorModal').modal('show');
                     }
+                    
                     //child data
                     var result = obj.dataset.data.datum;
                     var name = obj.dataset.name;
 
                     var dataPoints1 = [];
                     var dataPoints2 = [];
+                    var dataPoints3 = [];
+                    var dataPoints4 = [];
 
                     var chart = new CanvasJS.Chart("chartContainer",{
                       zoomEnabled: true,
@@ -223,6 +262,20 @@
                         showInLegend: true,
                         name: "Day Low",
                         dataPoints: dataPoints2
+                      },{ 
+                        // dataSeries1 dayHigh
+                        type: "line",
+                        xValueType: "dateTime",
+                        showInLegend: true,
+                        name: "Opening",
+                        dataPoints: dataPoints3
+                      },{ 
+                        // dataSeries1 dayHigh
+                        type: "line",
+                        xValueType: "dateTime",
+                        showInLegend: true,
+                        name: "Closing",
+                        dataPoints: dataPoints4
                       }],
                           legend:{
                             cursor:"pointer",
@@ -262,7 +315,7 @@
                       // pushing the new values
                       dataPoints1.push({
                         x: date_f,
-                        y: open_f,
+                        y: high_f,
                         mouseover: function(e) { 
                           $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
                           $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
@@ -273,7 +326,7 @@
                       //pushing the new values
                       dataPoints2.push({
                         x: date_f,
-                        y: high_f,
+                        y: low_f,
                         mouseover: function(e) { 
                           $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
                           $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
@@ -281,12 +334,31 @@
                           $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
                           }  
                       });
+                      dataPoints3.push({
+                        x: date_f,
+                        y: open_f,
+                        mouseover: function(e) { 
+                          $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
+                          $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
+                          $( "#dayHigh" ).html( "<p>" + high_f + "</p>").toggle( "highlight" );
+                          $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
+                        }  
+                      });
+                      dataPoints4.push({
+                        x: date_f,
+                        y: close_f,
+                        mouseover: function(e) { 
+                          $( "#kd" ).html( "<p>" + open_f + "</p>").toggle( "highlight" );
+                          $( "#rsi" ).html( "<p>" + close_f + "</p>").toggle( "highlight" );
+                          $( "#dayHigh" ).html( "<p>" + high_f + "</p>").toggle( "highlight" );
+                          $( "#dayLow" ).html( "<p>" + low_f + "</p>").toggle( "highlight" ); 
+                        }  
+                      });
 
                     });
                     chart.render();
 
-                }).fail(function(error) { alert(error.responseJSON) });
-        //});
+                });
     });
     </script>
     <div class="container">
