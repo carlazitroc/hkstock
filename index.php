@@ -57,15 +57,9 @@
 		    	<h4>Use Quandl Stock Information result for symbol and company name to view the chart</h4>
 		      	<form id="chart_lookup" action="stocks.php" method="post">
 				  <div class="form-group row">
-	  			    <label for="inputEmail3" class="col-sm-2 form-control-label">Stock Symbol</label>
+	  			    <label for="symbol" class="col-sm-2 form-control-label">Stock Symbol</label>
 	  			    <div class="col-sm-10">
 	  			      <input type="text" name="stock_num" class="form-control" placeholder="Stock Symbol" required/>
-	  			    </div>
-	  			  </div>
-	  			  <div class="form-group row">
-	  			    <label for="inputPassword3" class="col-sm-2 form-control-label">Company Name</label>
-	  			    <div class="col-sm-10">
-	  			      <input type="text" name"comp_name" class="form-control" placeholder="Company Name"/>
 	  			    </div>
 	  			  </div>
 	  			  <div class="form-group row">
@@ -79,34 +73,43 @@
 		
 		<!--get code for quandl-->
 		<section>
-			<h4 class="text-center">Quandl Stock Information</h4>
-	 		<table class="table table-bordered table-indicator">
-    			<thead id="headertable">
-    				<tr>
-    					<th>Symbol</th>
-    					<th>Company Name</th>
-    				</tr>
-    			</thead>
-    			<tbody id=results>
+
 					<?php
 					    $url = 'https://www.quandl.com/api/v3/datasets.xml?query='.$compname.'&database_code=XHKG';
 					    //$url = 'data/00700.xml';
-					    $xml = simplexml_load_file($url);
+					    $xml = @simplexml_load_file($url);
+					    
+					    if($xml){
 
-					    // get company name and stock symbol
-						foreach( $xml->datasets->dataset as $xmlResult){
-							$name 	= $xmlResult->name;
-							$symbol = $xmlResult->{'dataset-code'};
+					    print '<h4 class="text-center">Quandl Stock Information</h4>
+				 		<table class="table table-bordered table-indicator">
+			    			<thead id="headertable">
+			    				<tr>
+			    					<th>Symbol</th>
+			    					<th>Company Name</th>
+			    				</tr>
+			    			</thead>
+			    			<tbody id=results>';
 
-							print '<tr>'; 
-						    print '<td>'.$symbol.'</td>';
-						    print '<td>'.$name.'</td>';
-						    print '</tr>';
-						}
-					  
+
+						    // get company name and stock symbol
+							foreach( $xml->datasets->dataset as $xmlResult){
+								$name 	= $xmlResult->name;
+								$symbol = $xmlResult->{'dataset-code'};
+
+								print '<tr>'; 
+							    print '<td>'.$symbol.'</td>';
+							    print '<td>'.$name.'</td>';
+							    print '</tr>';
+							}
+						print"</tbody>
+    					</table>";
+
+					  	}else{
+					  		
+					  	}
 				 	?>
-    			</tbody>
-    		</table>
+
 		</section>
 
 		<!--result from yahoo finance-->
