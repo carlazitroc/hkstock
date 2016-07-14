@@ -460,3 +460,10 @@ body {
 .form-control{
   border: 1px solid #2f6ebb;
 }
+#header a{
+  color: #ffffff !important;
+}
+#header a:focus,#header a:hover{
+  color: #ffffff !important;
+  text-decoration: none;
+}
