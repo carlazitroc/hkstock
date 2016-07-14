@@ -4,10 +4,10 @@ if (isset($_POST["stock_num"]) && !empty($_POST["stock_num"]))      { $dataset_c
 
 //echo $dataset_code;
 //live data from quandl.com
-//$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
 
 //live data from quandl.com free
-$url ='https://www.quandl.com/api/v3/datasets/WIKI/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+//$url ='https://www.quandl.com/api/v3/datasets/WIKI/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
 //$url = 'data/'.$dataset_code.'.xml';
 $xml = xmltojson($url);
 
@@ -16,7 +16,7 @@ echo $xml;
 else{
     if (isset($_POST["stock_num_index"]) && !empty($_POST["stock_num_index"]))      { $dataset_code_index = $_POST['stock_num_index'];
 
-    //$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code_index.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+    $url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code_index.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
     $url = 'data/'.$dataset_code_index.'.xml';
     $xml = xmltojson($url);
 
