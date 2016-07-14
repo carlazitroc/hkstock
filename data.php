@@ -4,10 +4,10 @@ if (isset($_POST["stock_num"]) && !empty($_POST["stock_num"]))      { $dataset_c
 
 //echo $dataset_code;
 //live data from quandl.com
-$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+$url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=D_ZD4ko9pJshv4zfX1Fp';
 
 //live data from quandl.com free
-//$url ='https://www.quandl.com/api/v3/datasets/WIKI/'.$dataset_code.'.xml?api_key=NzzkduZp5xEeyoC6q-oR';
+//$url ='https://www.quandl.com/api/v3/datasets/WIKI/'.$dataset_code.'.xml?api_key=D_ZD4ko9pJshv4zfX1Fp';
 //$url = 'data/'.$dataset_code.'.xml';
 $xml = xmltojson($url);
 
