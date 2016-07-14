@@ -1,38 +1,27 @@
-# Hong Kong Real Time Stock Chart
+# [Start Bootstrap](http://startbootstrap.com/) - [Creative](http://startbootstrap.com/template-overviews/creative/)
 
-## Description
+[Creative](http://startbootstrap.com/template-overviews/creative/) is a one page creative theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/).
 
-A simple php/jquery application for Hong Kong Historical Stock Chart.
+## Getting Started
 
-## How to use
+To begin using this template, choose one of the following options to get started:
+* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/creative/)
+* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-creative.git`
+* Fork the repo
 
-Access the page at:  
-https://hkstockchart.herokuapp.com/
+## Bugs and Issues
 
-1. Search company's stock symbol by entering company name to Stock Symbol Lookup.
-2. Use Quandl Stock Information result for symbol and company name to view the chart.
+Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-creative/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/creative/).
 
-## Features
+## Creator
 
-![image](source/img/stockchart.gif)
+Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
 
-1. Chart is interactive and can be zoom in and zoom out and drag to x and y axis.
-2. Stock Symbol and data came from Yahoo Finance and Quandl.com
-3. Historical Chart data are from Quandl.com 
+* https://twitter.com/davidmillerskt
+* https://github.com/davidtmiller
 
-## Server Requirements
+Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
 
-PHP version 5.5 or newer is recommended. 
+## Copyright and License
 
-## Installation
-
-1. Download or clone the repo.
-2. Unzip the package.
-3. Upload the folders and files to your server. Normally the index.php file will be at your root.
-4. Run the application through your web browser.
-
-## Package/Plugin use
-
-1. Twitter Boostrap
-2. Jquery
-3. CanvasJS
+Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-creative/blob/gh-pages/LICENSE) license.
