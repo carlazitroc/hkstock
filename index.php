@@ -10,7 +10,7 @@ include('header.html');
             <!--symbol lookup-->
             <div class="col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading text-center">
                         <h3 class="panel-title">Stock Symbol Lookup</h3>
                     </div>
                         <div class="panel-body">
@@ -35,7 +35,7 @@ include('header.html');
             <!--show search form for chart-->
             <div class="col-md-6">
                  <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading text-center">
                         <h3 class="panel-title">Hong Kong Stocks Historical Chart Loookup</h3>
                     </div>
                     <div class="panel-body">
@@ -74,8 +74,8 @@ include('header.html');
                 if($xml){
 
                 print '<h4 class="text-center"><b>Quandl Stock Information</b></h4>
-                <table class="table table-bordered table-indicator">
-                    <thead id="headertable">
+                <table class="table table-striped table-indicator sortable-theme-bootstrap" data-sortable>
+                    <thead id="headertable" class="thead-inverse">
                         <tr>
                             <th class="col-sm-2">Symbol</th>
                             <th class="col-sm-10">Company Name</th>
@@ -112,8 +112,8 @@ include('header.html');
                 $results = $data['ResultSet']['Result'];
 
                 print '<h4 class="text-center"><b>Yahoo Finance Stock Information</b></h4>
-                <table class="table table-bordered table-indicator">
-                    <thead id="headertable">
+                <table class="table table-striped table-indicator sortable-theme-bootstrap" data-sortable>
+                    <thead id="headertable" class="thead-inverse">
                         <tr>
                             <th class="col-sm-2">Symbol</th>
                             <th class="col-sm-10">Company Name</th>

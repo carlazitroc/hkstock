@@ -54,6 +54,7 @@ include('header.html');
                     var dataPoints4 = [];
 
                     var chart = new CanvasJS.Chart("chartContainer",{
+                      animationEnabled: true,
                       zoomEnabled: true,
                       zoomType: "xy",
                       title: {
@@ -216,6 +217,7 @@ include('header.html');
                     var dataPoints4 = [];
 
                     var chart = new CanvasJS.Chart("chartContainer",{
+                      animationEnabled: true,
                       zoomEnabled: true,
                       zoomType: "xy",
                       title: {
@@ -358,7 +360,7 @@ include('header.html');
         <!--symbol lookup-->
         <div class="col-md-6">
             <div class="panel panel-primary">
-                <div class="panel-heading">
+                <div class="panel-heading text-center">
                     <h3 class="panel-title">Stock Symbol Lookup</h3>
                 </div>
                     <div class="panel-body">
@@ -383,7 +385,7 @@ include('header.html');
         <!--show search form for chart-->
         <div class="col-md-6">
           <div class="panel panel-primary">
-              <div class="panel-heading">
+              <div class="panel-heading text-center">
                   <h3 class="panel-title">Hong Kong Stocks Historical Chart Loookup</h3>
               </div>
               <div class="panel-body">
@@ -408,7 +410,7 @@ include('header.html');
       </section>
 
       <section id='loadingmessage' class="text-center" style="display: none;">
-        <img src='img/ajax-loader.gif'/>
+        <img src='img/ajaxloader.gif'/>
       </section>
 	      
       <!--graph-->
@@ -459,7 +461,7 @@ include('header.html');
               <p>Please search other symbol to search.</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

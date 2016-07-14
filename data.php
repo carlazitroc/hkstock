@@ -2,12 +2,13 @@
 if (isset($_POST["stock_num"]) && !empty($_POST["stock_num"]))      { $dataset_code = $_POST['stock_num'];
 
 
-//echo $dataset_code;
 //live data from quandl.com
 $url = 'https://www.quandl.com/api/v3/datasets/XHKG/'.$dataset_code.'.xml?api_key=D_ZD4ko9pJshv4zfX1Fp';
 
 //live data from quandl.com free
 //$url ='https://www.quandl.com/api/v3/datasets/WIKI/'.$dataset_code.'.xml?api_key=D_ZD4ko9pJshv4zfX1Fp';
+
+//local data
 //$url = 'data/'.$dataset_code.'.xml';
 $xml = xmltojson($url);
 

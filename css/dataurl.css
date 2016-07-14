@@ -59,8 +59,8 @@
   top: 7px;
   height: 14px;
   font-size: 12px;
-  background: #f05f40;
-  color: #f05f40;
+  background: #2b578c;
+  color: #2b578c;
   line-height: 60px;
   font-weight: bold;
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -189,7 +189,7 @@
   width: 100%;
   height: 28px;
   z-index: 2001;
-  box-shadow: inset 0 0 0 2px #f05f40, inset 0 0 0 7px #FFF;
+  box-shadow: inset 0 0 0 2px #2b578c, inset 0 0 0 7px #FFF;
   border-radius: 10px;
 }
 
